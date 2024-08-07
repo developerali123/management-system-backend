@@ -34,6 +34,26 @@ const authController = require('../controllers/authController');
  *         password: password123
  *         verified: false
  *         verificationCode: '123456'
+ *     UserSignup:
+ *       type: object
+ *       required:
+ *         - email
+ *         - username
+ *         - password
+ *       properties:
+ *         email:
+ *           type: string
+ *           description: The user's email
+ *         username:
+ *           type: string
+ *           description: The user's username
+ *         password:
+ *           type: string
+ *           description: The user's password
+ *       example:
+ *         email: user@example.com
+ *         username: user123
+ *         password: password123
  */
 
 /**
@@ -54,7 +74,7 @@ const authController = require('../controllers/authController');
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/components/schemas/UserSignup'
  *     responses:
  *       201:
  *         description: The user was successfully created
@@ -233,7 +253,7 @@ router.post('/verify-email/mongo', authController.verifyEmailMongo);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/components/schemas/UserSignup'
  *     responses:
  *       201:
  *         description: The user was successfully created

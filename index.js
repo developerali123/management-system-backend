@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/', authroutes);
 app.use('/users', userroutes);
 app.use(swaggerApp);
-// connectMongoDB(); // Establish MongoDB connection
+connectMongoDB(); // Establish MongoDB connection
 
 // Optional: Test PostgreSQL connection explicitly
 pool.query('SELECT NOW()', (err, res) => {
