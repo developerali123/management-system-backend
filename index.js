@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const connectMongoDB = require('./config/dbMongo');
 const pool = require('./config/dbPostgres');
 const swaggerApp = require('./swagger');
@@ -11,6 +12,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use('/', authroutes);
 app.use('/users', userroutes);
